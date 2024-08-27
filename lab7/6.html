@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<body>
+    <p id="tx">Hello World!</p><br>
+    <button type="button" id="submitBtn">Change!</button>
+
+<script>
+    
+    document.addEventListener("DOMContentLoaded", function() {
+        document.getElementById("submitBtn").addEventListener("click", handleSubmit);
+    
+        function handleSubmit() {
+            document.getElementById("tx").innerHTML = "Hello, Universe!";
+
+        }
+    });
+
+</script>
+</body>
+</html>

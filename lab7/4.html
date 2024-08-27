@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+    <div id="AA">
+         <label>Age <input type="number" id="age"></label><br>
+         <button type="button" id="submitBtn">Submit</button>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            document.getElementById("submitBtn").addEventListener("click", handleSubmit);
+        
+            function handleSubmit() {
+                const age = document.getElementById("age").value;
+                alert( (age >= 18) ? "You are an adult!" : "You are a minor!");
+            }
+
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<body>
+    <div id="AA">
+         <label>Name <input type="text" id="name"></label><br>
+         <button type="button" id="submitBtn">Submit</button>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            
+            document.getElementById("submitBtn").addEventListener("click", handleSubmit);
+            
+            function handleSubmit() {
+                const name = document.getElementById("name").value;
+                alert('Hello '+ name +'!');
+            }
+        });
+    </script>
+</body>
+</html>
