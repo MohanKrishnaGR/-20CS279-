@@ -14,7 +14,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     function addTransaction(amount, description, type) {
         const li = document.createElement('li');
-        li.textContent = `${type === 'income' ? '+' : '-'}INR${amount} ${description ? '- ' + description : ''}`;
+        li.textContent = `${(type === 'income') ? '+' : '-'}INR ${amount} ${description ? '=> ' + description : ''}`;
         transactionsList.appendChild(li);
     }
 
@@ -40,4 +40,3 @@ document.addEventListener('DOMContentLoaded', function () {
         expenseForm.reset();
     });
 });
-
