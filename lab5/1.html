@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Lab 5</title>
+    <style>
+        .maps {
+            padding-bottom: 50%;
+            position: relative;
+        }
+        
+        .maps iframe{
+            height: 100%;
+            width: 100%;
+            left: 0;
+            top: 0;
+            position: absolute;
+        }
+    </style>
+</head>
+<body>
+    <h1>Lab 5 - Excercise 1</h1>
+    <div >
+        <map name="image-map">
+            <area target="" alt="" title="" onclick="clk()" href="https://en.wikipedia.org/wiki/Eiffel_Tower" coords="250,226,279,253" shape="rect">
+            <area target="" alt="" title="" onclick="clk()" href="https://en.wikipedia.org/wiki/Eiffel_Tower" coords="48.858259588864534, 2.2940179778639287" shape="rect">
+
+        </map>
+        <!--<iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d12304.449116874652!2d2.2976093187441116!3d48.859180134822395!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e1!3m2!1sen!2sin!4v1722922248590!5m2!1sen!2sin" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" usemap="#image-map"></iframe>-->
+         <!--<iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d12304.449116874652!2d2.2976093187441116!3d48.859180134822395!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e1!3m2!1sen!2sin!4v1722922248590!5m2!1sen!2sin" width="600" height="450" style="border:0;" usemap="#image-map"></iframe> -->
+
+        <img src="Screenshot (3).png"  usemap="#image-map" >
+    </div>
+    <script>
+        function clk(){
+            alert("Eiffel Tower!");
+        }
+    </script>
+</body>
+</html>
