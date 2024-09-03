@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Area of Shapes!</title>
+</head>
+<body>
+    <form>
+        <label>Shape :</label>
+        <select id="sh">
+            <option value="sq">Square</option>
+            <option value="rect">Rectangle</option>
+            <option value="cir">Circle</option>
+        </select>
+        <button type="button">Submit shape</button>
+    </form>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            
+            const button = document.querySelector("button");
+            button.addEventListener("click", calculateArea);
+
+            function calculateArea() {
+                const shape = document.getElementById("sh").value;
+                let area;
+
+                switch(shape) {
+                    case "sq":
+                        const side = parseFloat(prompt("Enter the side length of the square:"));
+                        area = side * side;
+                        console.log(`Area of the square: ${area.toFixed(2)}`);
+                        break;
+
+                    case "rect":
+                        const length = parseFloat(prompt("Enter the length of the rectangle:"));
+                        const width = parseFloat(prompt("Enter the width of the rectangle:"));
+                        area = length * width;
+                        console.log(`Area of the rectangle: ${area.toFixed(2)}`);
+                        break;
+
+                    case "cir":
+                        const radius = parseFloat(prompt("Enter the radius of the circle:"));
+                        area = Math.PI * radius * radius;
+                        console.log(`Area of the circle: ${area.toFixed(2)}`);
+                        break;
+
+                    default:
+                        console.log("Invalid shape selected");
+                }
+            }
+
+
+        });
+
+    </script>
+</body>
+</html>
