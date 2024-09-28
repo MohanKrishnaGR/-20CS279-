@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<body>
+    <h1>Person Details</h1>
+    <div id="personDetails"></div>
+
+    <script>
+        const person = {
+            firstName: "John",
+            lastName: "Doe",
+            age: 30,
+            city: "New York"
+        };
+
+        function printPersonDetails(person){
+            const details = `
+                <p><strong>First Name:</strong> ${person.firstName}</p>
+                <p><strong>Last Name:</strong> ${person.lastName}</p>
+                <p><strong>Age:</strong> ${person.age}</p>
+                <p><strong>City:</strong> ${person.city}</p>
+            `;
+            //document.write(person.firstName + ' ' + person.lastName); 
+
+            document.getElementById("personDetails").innerHTML = details;
+        }
+
+        printPersonDetails(person);
+    </script>
+</body>
+</html>

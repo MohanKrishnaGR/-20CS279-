@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-Commerce Website</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        h1, h2 {
+            text-align: center;
+        }
+
+        .container {
+            width: 80%;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .product-list {
+            display: flex;
+            justify-content: space-around;
+            margin-bottom: 30px;
+        }
+
+        .product {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
+            width: 30%;
+            text-align: center;
+        }
+
+        .product button {
+            padding: 10px 15px;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .product button:hover {
+            background-color: #218838;
+        }
+
+        .cart {
+            margin-top: 40px;
+        }
+
+        .cart-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+            background-color: #fff;
+            padding: 10px;
+            border-radius: 5px;
+        }
+
+        .cart-item button {
+            padding: 5px 10px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .cart-item button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Simple E-Commerce Website</h1>
+
+    <!-- Products Section -->
+    <div class="container">
+        <h2>Products</h2>
+        <div class="product-list">
+            <div class="product">
+                <h3>Product 1</h3>
+                <p>$10.00</p>
+                <button onclick="addToCart('Product 1', 10)">Add to Cart</button>
+            </div>
+            <div class="product">
+                <h3>Product 2</h3>
+                <p>$15.00</p>
+                <button onclick="addToCart('Product 2', 15)">Add to Cart</button>
+            </div>
+            <div class="product">
+                <h3>Product 3</h3>
+                <p>$20.00</p>
+                <button onclick="addToCart('Product 3', 20)">Add to Cart</button>
+            </div>
+        </div>
+        
+        <!-- Cart Section -->
+        <div class="cart">
+            <h2>Shopping Cart</h2>
+            <div id="cart-items">
+                <!-- Cart items will be dynamically added here -->
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Cart object to store products
+        const cart = {};
+
+        // Function to add a product to the cart
+        function addToCart(productName, price) {
+            if (cart[productName]) {
+                cart[productName].quantity += 1;
+            } else {
+                cart[productName] = { price: price, quantity: 1 };
+            }
+            updateCart();
+        }
+
+        // Function to update the cart display
+        function updateCart() {
+            const cartItemsDiv = document.getElementById('cart-items');
+            cartItemsDiv.innerHTML = ''; // Clear previous cart items
+            
+            // Loop through cart items and display them
+            for (const product in cart) {
+                const cartItem = document.createElement('div');
+                cartItem.classList.add('cart-item');
+                cartItem.innerHTML = `
+                    <span>${product} - $${cart[product].price}</span>
+                    <div>
+                        <button onclick="decreaseQuantity('${product}')">-</button>
+                        <span> ${cart[product].quantity} </span>
+                        <button onclick="increaseQuantity('${product}')">+</button>
+                    </div>
+                `;
+                cartItemsDiv.appendChild(cartItem);
+            }
+        }
+
+        // Function to increase the quantity of a product
+        function increaseQuantity(productName) {
+            cart[productName].quantity += 1;
+            updateCart();
+        }
+
+        // Function to decrease the quantity of a product
+        function decreaseQuantity(productName) {
+            if (cart[productName].quantity > 1) {
+                cart[productName].quantity -= 1;
+            } else {
+                delete cart[productName]; // Remove item if quantity is 0
+            }
+            updateCart();
+        }
+    </script>
+
+</body>
+</html>

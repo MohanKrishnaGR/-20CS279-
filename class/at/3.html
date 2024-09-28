@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog Website</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        /* Consistent styling for blog post */
+        .blog-post {
+            border: 2px solid #333;
+            margin: 20px; /* Consistent spacing between posts */
+            padding: 20px; /* Padding inside the post to avoid crowding */
+            overflow: hidden; /* To contain floated elements properly */
+        }
+
+        /* Styling the images */
+        .blog-post img {
+            width: 40%; /* Fixed width for the images */
+            margin-right: 20px; /* Adds spacing between image and text */
+            float: left; /* Floats the image but will clear it properly */
+        }
+
+        /* Clear floats after each post to prevent layout issues */
+        .blog-post:after {
+            content: "";
+            display: table;
+            clear: both;
+        }
+
+        /* Add more space between paragraphs */
+        p {
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="blog-post">
+        <h2>My Trip to the Mountains</h2>
+        <img src="mountains.jpg" alt="Beautiful mountains">
+        <p>I had an amazing experience hiking in the mountains. The views were breathtaking, and the fresh air made me feel alive. There’s something truly special about being surrounded by nature.</p>
+    </div>
+
+    <div class="blog-post">
+        <h2>A Day at the Beach</h2>
+        <img src="beach.jpg" alt="Sandy beach">
+        <p>Relaxing at the beach was a perfect way to spend the weekend. The sound of the waves crashing against the shore was so calming, and I got to enjoy some great seafood as well!</p>
+    </div>
+
+</body>
+</html>

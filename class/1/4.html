@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<body>
+    <script>
+        var person = {
+            firstName: "John",
+            lastName: "Doe",
+            age: 8,
+            city: "NYC"
+        }
+
+        function getFullName(person) {
+            return person.firstName + ' '+ person.lastName;
+        }
+
+        function isAdult(person) {
+            return (person.age >= 18);            
+        }
+
+        document.write(getFullName(person));
+        document.write(isAdult(person) ? "Yes" : "No");
+    </script>
+</body>
+</html>

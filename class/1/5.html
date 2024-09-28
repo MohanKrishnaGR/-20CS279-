@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<body>
+    <h1>Iterating Over Object Properties</h1>
+    <script>
+        var book = {
+            title: "The Sreet Lawyer",
+            author: "John Gresham",
+            year: "2012",
+            genre: "IDK"
+        }
+        function listBookProperties(book) {
+            for (let prop in book) {
+                document.writeln(`<strong>${prop}</strong>: ${book[prop]} <br>`);
+            }
+        }
+
+        listBookProperties(book);
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Online Music Store</title>
+    <style>
+        /* General Body Styling */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+
+        /* Album Gallery */
+        .album-gallery {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 50px;
+        }
+
+        .album {
+            cursor: pointer;
+            border: 2px solid #ccc;
+            padding: 10px;
+            transition: transform 0.2s;
+        }
+
+        .album:hover {
+            transform: scale(1.05);
+        }
+
+        .album-cover {
+            width: 200px;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        /* Modal Styling */
+        .modal {
+            display: none; /* Hidden by default */
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.5); /* Black with opacity */
+        }
+
+        .modal-content {
+            background-color: white;
+            margin: 15% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+            max-width: 500px;
+            text-align: center;
+            border-radius: 10px;
+        }
+
+        .close-btn {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .close-btn:hover,
+        .close-btn:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        h2, p {
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Albums Section -->
+    <div class="album-gallery">
+        <div class="album" onclick="showAlbumInfo('Album 1', 'Artist 1', 9.99)">
+            <img src="https://via.placeholder.com/200" alt="Album 1 Cover" class="album-cover">
+        </div>
+        <div class="album" onclick="showAlbumInfo('Album 2', 'Artist 2', 14.99)">
+            <img src="https://via.placeholder.com/200" alt="Album 2 Cover" class="album-cover">
+        </div>
+        <div class="album" onclick="showAlbumInfo('Album 3', 'Artist 3', 19.99)">
+            <img src="https://via.placeholder.com/200" alt="Album 3 Cover" class="album-cover">
+        </div>
+    </div>
+
+    <!-- Modal Structure -->
+    <div id="albumModal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn">&times;</span>
+            <h2 id="albumTitle"></h2>
+            <p id="albumArtist"></p>
+            <p id="albumPrice"></p>
+        </div>
+    </div>
+
+    <script>
+        // Function to display album information in the modal
+        function showAlbumInfo(title, artist, price) {
+            // Set the modal content with the passed album information
+            document.getElementById('albumTitle').innerText = title;
+            document.getElementById('albumArtist').innerText = 'Artist: ' + artist;
+            document.getElementById('albumPrice').innerText = 'Price: $' + price.toFixed(2);
+            
+            // Display the modal
+            document.getElementById('albumModal').style.display = 'block';
+        }
+
+        // Close the modal when the user clicks on the close button
+        document.querySelector('.close-btn').onclick = function() {
+            document.getElementById('albumModal').style.display = 'none';
+        };
+
+        // Close the modal if the user clicks anywhere outside of the modal content
+        window.onclick = function(event) {
+            const modal = document.getElementById('albumModal');
+            if (event.target == modal) {
+                modal.style.display = 'none';
+            }
+        };
+    </script>
+
+</body>
+</html>

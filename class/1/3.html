@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<body>
+    <h1>Student Average Grade</h1>
+    <div id="studentGrade"></div>
+    <script>
+
+        const sudent = {
+            name: "ALice",
+            age: 16,
+            grades: {
+                math: 85,
+                science: 92,
+                english: 88
+            }
+        };
+
+        function calculateAverageGrade(student){
+            var doc = (student.grades.math + student.grades.science + student.grades.english)/3;
+            document.getElementById("studentGrade").innerHTML = "The average mark is " + doc;
+            //return doc;
+        }
+
+        calculateAverageGrade(sudent);
+    </script>
+</body>
+</html>
