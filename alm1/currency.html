@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Currency Converter</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> <!-- Add Chart.js -->
+    <script src="currency.js"></script>
+</head>
+<body ng-app="currencyApp" ng-controller="CurrencyController">
+    <div class="container">
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="services.html">Services</a>
+            <a href="currency.html">Currency Converter</a>
+            <a href="about.html">About</a>
+            <a href="contact.html">Contact</a>
+        </nav>
+
+        <h1>Currency Converter</h1>
+
+        <!-- Currency Conversion Form -->
+        <form ng-submit="convertCurrency()">
+            <label for="fromCurrency">From:</label>
+            <select id="fromCurrency" ng-model="fromCurrency" ng-options="currency for currency in currencies"></select>
+
+            <label for="toCurrency">To:</label>
+            <select id="toCurrency" ng-model="toCurrency" ng-options="currency for currency in currencies"></select>
+
+            <label for="amount">Amount:</label>
+            <input type="number" id="amount" ng-model="amount" required>
+
+            <button type="submit">Convert</button>
+        </form>
+
+        <!-- Conversion Result -->
+        <div ng-if="conversionResult">
+            <h3>Conversion Result:</h3>
+            <p>{{ amount }} {{ fromCurrency }} = {{ conversionResult }} {{ toCurrency }}</p>
+        </div>
+
+        <!-- Favorites and History -->
+        <h3>Favorites</h3>
+        <ul>
+            <li ng-repeat="pair in favoritePairs">
+                {{ pair.from }} to {{ pair.to }} <button ng-click="removeFavorite($index)">Remove</button>
+            </li>
+        </ul>
+        <button ng-click="addFavorite()">Add to Favorites</button>
+
+        <h3>Conversion History</h3>
+        <ul>
+            <li ng-repeat="conversion in conversionHistory">
+                {{ conversion.amount }} {{ conversion.from }} = {{ conversion.result }} {{ conversion.to }} on {{ conversion.date }}
+            </li>
+        </ul>
+
+        <!-- Data Visualization using Chart.js -->
+        <h3>Conversion Rate Trends</h3>
+        <canvas id="conversionChart" width="400" height="200"></canvas>
+    </div>
+</body>
+</html>
